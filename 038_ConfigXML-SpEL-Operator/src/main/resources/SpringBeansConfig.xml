@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	
+	<bean id="sayilarBean" class="com.furkankara.Sayilar">
+		<property name="sayi1" value="#{10}"></property>
+		<property name="sayi2" value="#{20}"></property>
+		<property name="sayi3" value="#{30}"></property>
+		<property name="sayi4" value="#{40}"></property>
+		<property name="sayi5" value="#{50}"></property>
+	
+	</bean>
+	<bean id="operatorlerBean" class="com.furkankara.Operatorler">
+		
+		<property name="equalTest"
+			value="#{sayilarBean.sayi1 == 10}">
+		</property><!-- Bunlari beanste value kismina ayni bu sekilde yazdik #{sayilarBean.sayi1 == 1453} -->
+		
+		<property name="notEqualTest"
+			value="#{sayilarBean.sayi2 != 1453}">
+		</property>
+		
+		<property name="lessThanTest"
+			value="#{sayilarBean.sayi3 != 1453}">
+		</property><!-- lt 'less than' -->
+		
+		<property name="lessThanOrEqualTest"
+			value="#{sayilarBean.sayi5 le 12}">
+		</property>
+		
+		<property name="andTest"
+			value="#{sayilarBean.sayi3 eq 10  and  sayilarBean.sayi5 le 12 }">
+		</property>
+		
+		<property name="divisionTest"
+			value="#{sayilarBean.sayi3 / 10  }">
+		</property>
+		
+		<property name="addStringTest"
+			value="#{'Burak' +  ' Yilmaz'  }">
+		</property>
+		
+		<property name="exponentialTest"
+			value="#{2 ^ 3 }">
+		</property>
+		
+		
+	</bean>
+	
+	
+</beans>
